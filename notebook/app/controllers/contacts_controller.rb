@@ -15,10 +15,12 @@ class ContactsController < ApplicationController
   # GET /contacts/new
   def new
     @contact = Contact.new
+    Carregar_Tipos()
   end
 
   # GET /contacts/1/edit
   def edit
+    Carregar_Tipos()
   end
 
   # POST /contacts
@@ -62,6 +64,12 @@ class ContactsController < ApplicationController
   end
 
   private
+
+    def Carregar_Tipos
+      @Carregar_Tipos = Kind.all
+    end
+
+
     # Use callbacks to share common setup or constraints between actions.
     def set_contact
       @contact = Contact.find(params[:id])
